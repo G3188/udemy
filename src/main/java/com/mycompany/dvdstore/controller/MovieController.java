@@ -1,13 +1,12 @@
 package com.mycompany.dvdstore.controller;
 
 import com.mycompany.dvdstore.entity.Movie;
-import com.mycompany.dvdstore.service.MovieService;
+import com.mycompany.dvdstore.service.MovieServiceInterface;
 
 public class MovieController {
-    private MovieService movieService = new MovieService();
+    private MovieServiceInterface movieServiceInterface ;
 
     public void addUsingConsole(Movie movie){
-        MovieService movieService = new MovieService();
-        movieService.registerMovie(movie);
+        movieServiceInterface.registerMovie(movie);
     }
 }
