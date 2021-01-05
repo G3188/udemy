@@ -11,5 +11,6 @@ public class MovieRepository {
     public void addMovie(Movie movie){
         movieList.add(movie);
         System.out.println("The movie"+" "+ movie.getTitle()+" "+"has been added");
+
     }
 }

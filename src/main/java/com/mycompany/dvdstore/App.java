@@ -1,5 +1,6 @@
 package com.mycompany.dvdstore;
 
+import com.mycompany.dvdstore.controller.MovieController;
 import com.mycompany.dvdstore.entity.Movie;
 import com.mycompany.dvdstore.service.MovieService;
 
@@ -22,7 +23,7 @@ public class App
         Movie movie = new Movie();
         movie.setGenre(movieGenre);
         movie.setTitle(movieTitle);
-        MovieService movieService = new MovieService();
-        movieService.registerMovie(movie);
+        MovieController movieController = new MovieController();
+        movieController.addUsingConsole(movie);
     }
 }
