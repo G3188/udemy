@@ -2,6 +2,8 @@ package com.mycompany.dvdstore;
 
 import com.mycompany.dvdstore.controller.MovieController;
 import com.mycompany.dvdstore.entity.Movie;
+import com.mycompany.dvdstore.repository.GoLiveMovieRepository;
+import com.mycompany.dvdstore.service.MovieService;
 
 import java.util.Scanner;
 
@@ -23,6 +25,10 @@ public class App
         movie.setGenre(movieGenre);
         movie.setTitle(movieTitle);
         MovieController movieController = new MovieController();
+        MovieService movieService = new MovieService();
+        GoLiveMovieRepository goLiveMovieRepository = new GoLiveMovieRepository();
+        movieService.setMovieRepositoryInterface(goLiveMovieRepository);
+        movieController.setMovieServiceInterface(movieService);
         movieController.addUsingConsole(movie);
     }
 }
