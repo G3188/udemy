@@ -2,8 +2,8 @@ package com.mycompany.dvdstore;
 
 import com.mycompany.dvdstore.controller.MovieController;
 import com.mycompany.dvdstore.entity.Movie;
-import com.mycompany.dvdstore.repository.GoLiveMovieRepository;
-import com.mycompany.dvdstore.service.MovieService;
+import com.mycompany.dvdstore.repository.FileMovieRepository;
+import com.mycompany.dvdstore.service.DefaultMovieService;
 
 import java.util.Scanner;
 
@@ -15,20 +15,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Enter movie title" );
-        Scanner sc = new Scanner(System.in);
-        String movieTitle = sc.nextLine();
-        System.out.println("Enter Movie Genre");
-        String movieGenre = sc.nextLine();
-        sc.close();
-        Movie movie = new Movie();
-        movie.setGenre(movieGenre);
-        movie.setTitle(movieTitle);
+
         MovieController movieController = new MovieController();
-        MovieService movieService = new MovieService();
-        GoLiveMovieRepository goLiveMovieRepository = new GoLiveMovieRepository();
-        movieService.setMovieRepositoryInterface(goLiveMovieRepository);
-        movieController.setMovieServiceInterface(movieService);
-        movieController.addUsingConsole(movie);
+        DefaultMovieService defaultMovieService = new DefaultMovieService();
+        FileMovieRepository fileMovieRepository = new FileMovieRepository();
+        defaultMovieService.setMovieRepositoryInterface(fileMovieRepository);
+        movieController.setMovieServiceInterface(defaultMovieService);
+        movieController.addUsingConsole();
     }
 }
