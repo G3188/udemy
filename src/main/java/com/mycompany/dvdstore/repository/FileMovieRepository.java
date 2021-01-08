@@ -20,7 +20,7 @@ public class FileMovieRepository implements MovieRepositoryInterface {
         catch (IOException e){
             e.printStackTrace();
         }
-        System.out.println("The movie "+movie.getTitle()+" has been added.");
+        System.out.println("The movie "+movie.getTitle()+" has been added " +"in movies.txt");
     }
 
 }
