@@ -11,11 +11,13 @@
 
     <!-- Services -->
     <bean id="defaultMovieService" class="com.mycompany.dvdstore.service.DefaultMovieService">
-        <property name="movieRepositoryInterface" ref="memoryMovieRepository"/>
+        <property name="movieRepositoryInterface" ref="fileMovieRepository"/>
     </bean>
 
     <!-- Repositories -->
-    <bean id= "fileMovieRepository" class="com.mycompany.dvdstore.repository.FileMovieRepository"/>
+    <bean id= "fileMovieRepository" class="com.mycompany.dvdstore.repository.FileMovieRepository">
+        <property name="file" value="C:\\temp\\movies.csv"/>
+    </bean>
     <bean id= "memoryMovieRepository" class="com.mycompany.dvdstore.repository.MemoryMovieRepository"/>
 
 
